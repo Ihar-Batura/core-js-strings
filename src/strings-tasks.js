@@ -37,8 +37,8 @@ function getStringLength(value) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  return typeof value === 'string' || value instanceof String;
 }
 
 /**
@@ -178,8 +178,13 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  if (typeof str === 'undefined' || str === null) return 0;
+  let res = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    res += str.charCodeAt(i);
+  }
+  return res;
 }
 
 /**
